@@ -37,8 +37,7 @@ async def paranoiaFunc(channelID, msg):
             holdStr = holdStr.content
         await msg.channel.send("Unmuting users")
         for member in memberIDs:
-            if msg.channel.guild.get_member(memberIDs[index]).voice.deaf:
-                await msg.channel.guild.get_member(member).edit(deafen = False)
+            await msg.channel.guild.get_member(member).edit(deafen = False)
         await msg.channel.send("Flipping the coin")
         seed(int(time.time()*1000.0))
         value = bool(randint(0,1))
